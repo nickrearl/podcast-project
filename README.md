@@ -3,6 +3,3 @@ hello
 
 test
 
-Hello World
-
-another test
