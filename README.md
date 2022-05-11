@@ -4,7 +4,6 @@
 AS AN user that enjoys podcasts
 I WANT to be able to search for category 
 SO THAT I can receive a list of recommendations and reviews
-
 ````
 
 ## Acceptance Criteria
@@ -14,7 +13,6 @@ GIVEN the user enters a category into the search engine
 THEN I am presented with the a list of podcasts based on the category
 WHEN I click one of the items in the list of podcasts
 THEN I will see reviews and information about that specific podcast
-
 ````
 
 ## How to run this program
@@ -39,7 +37,7 @@ View a [live preview](DEPLOYED PAGE LINK GOES HERE) of my project.
 
 ## Contributors
 
-[Nick Earl](https://github.com/nickrearl)
-[Victor Nunez](https://github.com/VN135766)
-[Caleb Barkman](https://github.com/Caleb6826)
-[Leandri Beavis](https://github.com/LeandriB)
+* [Nick Earl](https://github.com/nickrearl)
+* [Victor Nunez](https://github.com/VN135766)
+* [Caleb Barkman](https://github.com/Caleb6826)
+* [Leandri Beavis](https://github.com/LeandriB)
