@@ -19,11 +19,11 @@ THEN I will see reviews and information about that specific podcast
 
 1. Open the 'index.html' file in a browser
 OR
-2. View a live preview of my project below
+2. View a live preview of our project below
 
 ## Live Preview
 
-View a [live preview](DEPLOYED PAGE LINK GOES HERE) of my project.
+View a [live preview](DEPLOYED PAGE LINK GOES HERE) of our project.
 
 ## Screenshot
 
