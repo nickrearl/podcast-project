@@ -1,15 +1,62 @@
+// add event listener for when a selction is made from the genre drop down------
+
+// return the slected genere to be added as a variable to the allfeeds api call url---------
+
+// call allfeeds api for list of podcasts by top in the genre selected-----------
+
+// display top ten results in a list with clickable buttons on the left side of the screen
+
+// add an event listener so when a button is clicked that podcast is selected
+
+// create variable so when a genre is selected it can be sent to the url for the google custom search api call
+
+// run the google api call with the selected podcast to get more information about the podcast
+
+// display the google api results on the right side of the screen
+
+
 var genreSelector = document.getElementById("genres")
 
-var genreChoiceSelector = document.getElementById("genre-select-form")
+// var genreChoiceSelector = document.getElementById("genre-select-form")
 
 var submitButton = document.getElementById("submit")
 
+var chosenGenre = ""
+
+
+
+
+var allfeedsApiCall = function () {
+    fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
+        })
+        .then(data => {
+            console.log(data);
+            // podCast(data)
+        })
+        .catch((error) => console.error("FETCH ERROR:", error));
+}
+
 var getGenreChoice = function(){
 
-    console.log("click");
+    event.preventDefault()
+    var value = genreSelector.options[genreSelector.selectedIndex].value;
+
+    // var text = genreSelector.options[genreSelector.selectedIndex].text;
+
+    chosenGenre = value
+
+    allfeedsApiCall()
+
 }
 
 submitButton.addEventListener("click", getGenreChoice)
+
 
 
 // var podcastTitle = []
@@ -28,8 +75,8 @@ submitButton.addEventListener("click", getGenreChoice)
 
 // // testAPICall()
 
-// var allfeedsApiCall = function (genreid) {
-//     fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (genreid))
+// var allfeedsApiCall = function () {
+//     fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
 //         .then((response) => {
 //             if (response.ok) {
 //                 return response.json();
@@ -83,19 +130,4 @@ submitButton.addEventListener("click", getGenreChoice)
     
 // }
 
-// add event listener for when a selction is made from the genre drop down
-
-// return the slected genere to be added as a variable to the allfeeds api call url
-
-// call allfeeds api for list of podcasts by top in the genre selected
-
-// display top ten results in a list with clickable buttons on the left side of the screen
-
-// add an event listener so when a button is clicked that podcast is selected
-
-// create variable so when a genre is selected it can be sent to the url for the google custom search api call
-
-// run the google api call with the selected podcast to get more information about the podcast
-
-// display the google api results on the right side of the screen
 
