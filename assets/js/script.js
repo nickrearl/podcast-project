@@ -23,9 +23,6 @@ var submitButton = document.getElementById("submit")
 
 var chosenGenre = ""
 
-var resultEl = document.querySelector(".list-group");
-
-
 var allfeedsApiCall = function () {
     fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
         .then((response) => {
