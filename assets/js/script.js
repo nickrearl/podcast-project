@@ -23,9 +23,6 @@ var submitButton = document.getElementById("submit")
 
 var chosenGenre = ""
 
-
-
-
 var allfeedsApiCall = function () {
     fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
         .then((response) => {
@@ -37,6 +34,7 @@ var allfeedsApiCall = function () {
         })
         .then(data => {
             console.log(data);
+            displayResults(data)
             // podCast(data)
 
         })
@@ -55,13 +53,30 @@ var getGenreChoice = function(){
     chosenGenre = value
 
     allfeedsApiCall()
+    
 
 }
 
-submitButton.addEventListener("click", getGenreChoice)
+submitButton.addEventListener("click", getGenreChoice);
 
+var count = 0;
 
+// function displayResults (){
+//     $(".podCastTile").each(function(){
+//         $(this).children(".title").textContent=arr[count].title
+//     })
+// };
 
+function displayResults(data) {
+    $(".podCastTile").each(function () {
+        $(this).children(".title").text("");
+        $(this).children(".picture").attr("src", "");
+        $(this).children(".title").text(data.results[count].title);
+        $(this).children(".picture").attr("src", data.results[count].image_url);
+        count++;
+    }
+    )
+};
 // var podcastTitle = []
 
 // var googleApiCall = function(){
