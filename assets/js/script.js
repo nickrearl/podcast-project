@@ -23,8 +23,10 @@ var submitButton = document.getElementById("submit")
 
 var chosenGenre = ""
 
+var pageNumber = ""
+
 var allfeedsApiCall = function () {
-    fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
+    fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc&genre=" + (chosenGenre) + "&page=" + pageNumber)
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -51,6 +53,8 @@ var getGenreChoice = function(){
     // var text = genreSelector.options[genreSelector.selectedIndex].text;
 
     chosenGenre = value
+
+    pageNumber = Math.floor(Math.random() * 10)
 
     allfeedsApiCall()
     
