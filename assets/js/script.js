@@ -4,13 +4,13 @@
 
 // call allfeeds api for list of podcasts by top in the genre selected-----------
 
-// display top ten results in a list with clickable buttons on the left side of the screen
+// display top ten results in a list with clickable buttons on the left side of the screen -------
 
-// add an event listener so when a button is clicked that podcast is selected
+// add an event listener so when a button is clicked that podcast is selected -------
 
-// create variable so when a genre is selected it can be sent to the url for the google custom search api call
+// create variable so when a genre is selected it can be sent to the url for the google custom search api call ------
 
-// run the google api call with the selected podcast to get more information about the podcast
+// run the google api call with the selected podcast to get more information about the podcast ------
 
 // display the google api results on the right side of the screen
 
@@ -77,19 +77,28 @@ function displayResults(data) {
     }
     )
 };
-// var podcastTitle = []
 
-// var googleApiCall = function(){
-//     fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4&cx=30fac650a9835a16a&q=")
-//     .then(function(response){
-//         if(response.ok){
-//             return response.json()
-//         }
-//         else {
-//             throw new Error("NETWROK RESPONSE ERROR")
-//         }
-//     })
-// }
+
+$("#genre-container").on("click", ".title", function(){
+    var chosenPodcastTitle = $(this).text()
+    googleApiCall(chosenPodcastTitle)
+})
+
+var googleApiCall = function(podcastTitle){
+    fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4&cx=30fac650a9835a16a&q=" + podcastTitle)
+    .then(function(response){
+        if(response.ok){
+            return response.json()
+        }
+        else {
+            throw new Error("NETWROK RESPONSE ERROR")
+        }
+    })
+    .then(data => {
+        console.log(data);
+    })
+    
+}
 
 // // testAPICall()
 
