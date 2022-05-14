@@ -38,8 +38,11 @@ var allfeedsApiCall = function () {
         .then(data => {
             console.log(data);
             // podCast(data)
+
         })
         .catch((error) => console.error("FETCH ERROR:", error));
+
+
 }
 
 var getGenreChoice = function(){
