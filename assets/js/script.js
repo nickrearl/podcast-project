@@ -90,7 +90,9 @@ function displayResults(data) {
 
 $("#genre-container").on("click", ".title", function(){
     var chosenPodcastTitle = $(this).text()
+    $("#additionalInfo").html("");
     googleApiCall(chosenPodcastTitle)
+     
 })
 
 function displaypod(data){
