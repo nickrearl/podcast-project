@@ -96,16 +96,25 @@ $("#genre-container").on("click", ".title", function(){
 function displaypod(data){
     
     for(let i = 0; i < data.items.length; i++){
-        console.log(data.items[i])
+        console.log(data.items[i]);
         var podtitle = $("<a>")
             .text(data.items[i].title)
             .attr("href",data.items[i].link)
             .attr("target","_blank"); 
-        $("#additionalInfo").append(podtitle)
         
+        var poddiv = $("<div>");
+        var snippet = $("<p>").text(data.items[i].snippet);
+        
+        poddiv.append(podtitle);
+        poddiv.append(snippet); 
+       
+       
+        $("#additionalInfo").append(poddiv);
     }
 
 }
+
+
 
 
 var googleApiCall = function(podcastTitle){
