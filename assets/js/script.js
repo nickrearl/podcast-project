@@ -14,6 +14,10 @@
 
 // display the google api results on the right side of the screen
 
+//extra api key
+//var key = 'bfsz9kkmbuk6nxpcndc6';
+
+var key = 'vn2ssqduhzg9wf8v2nj6';
 
 var genreSelector = document.getElementById("genres")
 
@@ -23,9 +27,12 @@ var submitButton = document.getElementById("submit")
 
 var chosenGenre = ""
 
+var pageNumber = ""
+
 var allfeedsApiCall = function () {
-    fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
+    fetch("https://allfeeds.ai/api/find_podcasts?key="+key+"&genre=" + (chosenGenre) + "&page=" + pageNumber)
         .then((response) => {
+            console.log(response)                   
             if (response.ok) {
                 return response.json();
             } else {
@@ -43,7 +50,7 @@ var allfeedsApiCall = function () {
 
 }
 
-var getGenreChoice = function(){
+var getGenreChoice = function(event){
 
     event.preventDefault()
     var value = genreSelector.options[genreSelector.selectedIndex].value;
@@ -51,6 +58,8 @@ var getGenreChoice = function(){
     // var text = genreSelector.options[genreSelector.selectedIndex].text;
 
     chosenGenre = value
+
+    pageNumber = Math.floor(Math.random() * 10)
 
     allfeedsApiCall()
     
@@ -81,8 +90,34 @@ function displayResults(data) {
 
 $("#genre-container").on("click", ".title", function(){
     var chosenPodcastTitle = $(this).text()
+    $("#additionalInfo").html("");
     googleApiCall(chosenPodcastTitle)
+     
 })
+
+function displaypod(data){
+    
+    for(let i = 0; i < data.items.length; i++){
+        console.log(data.items[i]);
+        var podtitle = $("<a>")
+            .text(data.items[i].title)
+            .attr("href",data.items[i].link)
+            .attr("target","_blank"); 
+        
+        var poddiv = $("<div>");
+        var snippet = $("<p>").text(data.items[i].snippet);
+        
+        poddiv.append(podtitle);
+        poddiv.append(snippet); 
+       
+       
+        $("#additionalInfo").append(poddiv);
+    }
+
+}
+
+
+
 
 var googleApiCall = function(podcastTitle){
     fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4&cx=30fac650a9835a16a&q=" + podcastTitle)
@@ -91,11 +126,12 @@ var googleApiCall = function(podcastTitle){
             return response.json()
         }
         else {
-            throw new Error("NETWROK RESPONSE ERROR")
+            throw new Error("NETWORK RESPONSE ERROR")
         }
     })
-    .then(data => {
+    .then(function(data) {
         console.log(data);
+        displaypod(data);
     })
     
 }
