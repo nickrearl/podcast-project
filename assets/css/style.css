@@ -87,6 +87,13 @@ a {
     font-size: 30px;
 }
 
+.favorite {
+    margin: 1rem;
+    /* margin-bottom: 1rem; */
+    width: min-content;
+    text-decoration: none;
+}
+
 .column {
     display: none;
 }
