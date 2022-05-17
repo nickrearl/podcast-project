@@ -19,10 +19,11 @@
 
 // var key = 'vn2ssqduhzg9wf8v2nj6';
 
+// var key = 'azk6ktkknuk6hnyhdp26';
+
 var key = "uxdsytjvf6nxr38xakcm"
 
 var genreSelector = document.getElementById("genres")
-
 
 var submitButton = document.getElementById("submit")
 
@@ -48,8 +49,6 @@ var allfeedsApiCall = function () {
 
         })
         .catch((error) => console.error("FETCH ERROR:", error));
-
-
 }
 
 var getGenreChoice = function(event){
@@ -60,7 +59,6 @@ var getGenreChoice = function(event){
 
     $(".title").text("");
     $(".picture").removeAttr("src", "");
-
 
     chosenGenre = value
 
@@ -73,16 +71,10 @@ var getGenreChoice = function(event){
 
 }
 
-submitButton.addEventListener("click", getGenreChoice);
-
-
 
 function displayResults(data) {
     var count = 0;
     $(".podCastTile").each(function () {
-        
-    // $(this).children(".title").text("");
-    // $(this).children(".picture").attr("src", "");
     $(this).children(".title").text(data.results[count].title);
     $(this).children(".picture").attr("src", data.results[count].image_url);
     count++;
@@ -90,13 +82,6 @@ function displayResults(data) {
     )
 };
 
-
-$("#genre-container").on("click", ".title", function(){
-    var chosenPodcastTitle = $(this).text()
-    $("#additionalInfo").html("");
-    googleApiCall(chosenPodcastTitle)
-    
-})
 
 function displaypod(data){
     
@@ -120,11 +105,11 @@ function displaypod(data){
 
 }
 
-
-
+// additional google API key: AIzaSyACBNiDBxazqUdFnOPucyrZI_TFXXvG_ks
+// additional google api key: AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4
 
 var googleApiCall = function(podcastTitle){
-    fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4&cx=30fac650a9835a16a&q=" + podcastTitle)
+    fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyACBNiDBxazqUdFnOPucyrZI_TFXXvG_ks&cx=30fac650a9835a16a&q=" + podcastTitle)
     .then(function(response){
         if(response.ok){
             return response.json()
@@ -141,6 +126,12 @@ var googleApiCall = function(podcastTitle){
     
 }
 
+submitButton.addEventListener("click", getGenreChoice);
 
-
+$("#genre-container").on("click", ".title", function(){
+    var chosenPodcastTitle = $(this).text()
+    $("#additionalInfo").html("");
+    googleApiCall(chosenPodcastTitle)
+    
+})
 
