@@ -25,7 +25,6 @@ var key = "uxdsytjvf6nxr38xakcm"
 
 var genreSelector = document.getElementById("genres")
 
-
 var submitButton = document.getElementById("submit")
 
 var chosenGenre = ""
@@ -107,9 +106,10 @@ function displaypod(data){
 }
 
 // additional google API key: AIzaSyACBNiDBxazqUdFnOPucyrZI_TFXXvG_ks
+// additional google api key: AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4
 
 var googleApiCall = function(podcastTitle){
-    fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4&cx=30fac650a9835a16a&q=" + podcastTitle)
+    fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyACBNiDBxazqUdFnOPucyrZI_TFXXvG_ks&cx=30fac650a9835a16a&q=" + podcastTitle)
     .then(function(response){
         if(response.ok){
             return response.json()
