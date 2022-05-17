@@ -23,11 +23,11 @@ OR
 
 ## Live Preview
 
-View a [live preview](DEPLOYED PAGE LINK GOES HERE) of our project.
+https://nickrearl.github.io/podcast-project/
 
 ## Screenshot
 
-![PREVIEW](PROJECT PREVIEW LINK GOES HERE)
+![alt text](./assets/images/preview.png)
 
 ## Attributions
 
