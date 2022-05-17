@@ -16,6 +16,8 @@ var chosenGenre = ""
 
 var pageNumber = ""
 
+var likedPodcasts = []
+
 var allfeedsApiCall = function () {
     fetch("https://allfeeds.ai/api/find_podcasts?key="+key+"&genre=" + (chosenGenre) + "&page=" + pageNumber + "&language=en")
         .then((response) => {
@@ -111,10 +113,18 @@ var googleApiCall = function(podcastTitle){
     
 }
 
+var saveFavorites = function(){
+    var savedPodcasts = JSON.stringify(likedPodcasts)
+
+    localStorage.setItem("savedCasts", savedPodcasts)
+}
+
 submitButton.addEventListener("click", getGenreChoice);
 
 $("#genre-container").on("click", ".title", function(){
     var chosenPodcastTitle = $(this).text()
+    likedPodcasts.push(chosenPodcastTitle)
+    saveFavorites()
     $("#additionalInfo").html("");
     googleApiCall(chosenPodcastTitle)
     
