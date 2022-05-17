@@ -17,6 +17,8 @@
 //extra api key
 //var key = 'bfsz9kkmbuk6nxpcndc6';
 
+// var key = 'azk6ktkknuk6hnyhdp26';
+
 var key = 'vn2ssqduhzg9wf8v2nj6';
 
 var genreSelector = document.getElementById("genres")
