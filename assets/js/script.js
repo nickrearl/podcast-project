@@ -12,18 +12,19 @@
 
 // run the google api call with the selected podcast to get more information about the podcast ------
 
-// display the google api results on the right side of the screen
+// display the google api results on the right side of the screen-------
 
 //extra api key
-//var key = 'bfsz9kkmbuk6nxpcndc6';
+// var key = 'bfsz9kkmbuk6nxpcndc6';
+
+// var key = 'vn2ssqduhzg9wf8v2nj6';
 
 // var key = 'azk6ktkknuk6hnyhdp26';
 
-var key = 'vn2ssqduhzg9wf8v2nj6';
+var key = "uxdsytjvf6nxr38xakcm"
 
 var genreSelector = document.getElementById("genres")
 
-// var genreChoiceSelector = document.getElementById("genre-select-form")
 
 var submitButton = document.getElementById("submit")
 
@@ -32,7 +33,7 @@ var chosenGenre = ""
 var pageNumber = ""
 
 var allfeedsApiCall = function () {
-    fetch("https://allfeeds.ai/api/find_podcasts?key="+key+"&genre=" + (chosenGenre) + "&page=" + pageNumber)
+    fetch("https://allfeeds.ai/api/find_podcasts?key="+key+"&genre=" + (chosenGenre) + "&page=" + pageNumber + "&language=en")
         .then((response) => {
             console.log(response)                   
             if (response.ok) {
@@ -42,9 +43,10 @@ var allfeedsApiCall = function () {
             }
         })
         .then(data => {
-            console.log(data);
+            console.log(data)
+
             displayResults(data)
-            // podCast(data)
+
 
         })
         .catch((error) => console.error("FETCH ERROR:", error));
@@ -55,13 +57,18 @@ var allfeedsApiCall = function () {
 var getGenreChoice = function(event){
 
     event.preventDefault()
+
     var value = genreSelector.options[genreSelector.selectedIndex].value;
 
-    // var text = genreSelector.options[genreSelector.selectedIndex].text;
+    $(".title").text("");
+    $(".picture").removeAttr("src", "");
+
 
     chosenGenre = value
 
-    pageNumber = Math.floor(Math.random() * 10)
+    console.log(chosenGenre);
+
+    pageNumber = Math.floor(Math.random() * 50)
 
     allfeedsApiCall()
     
@@ -70,21 +77,17 @@ var getGenreChoice = function(event){
 
 submitButton.addEventListener("click", getGenreChoice);
 
-var count = 0;
 
-// function displayResults (){
-//     $(".podCastTile").each(function(){
-//         $(this).children(".title").textContent=arr[count].title
-//     })
-// };
 
 function displayResults(data) {
+    var count = 0;
     $(".podCastTile").each(function () {
-        $(this).children(".title").text("");
-        $(this).children(".picture").attr("src", "");
-        $(this).children(".title").text(data.results[count].title);
-        $(this).children(".picture").attr("src", data.results[count].image_url);
-        count++;
+        
+    // $(this).children(".title").text("");
+    // $(this).children(".picture").attr("src", "");
+    $(this).children(".title").text(data.results[count].title);
+    $(this).children(".picture").attr("src", data.results[count].image_url);
+    count++;
     }
     )
 };
@@ -94,7 +97,7 @@ $("#genre-container").on("click", ".title", function(){
     var chosenPodcastTitle = $(this).text()
     $("#additionalInfo").html("");
     googleApiCall(chosenPodcastTitle)
-     
+    
 })
 
 function displaypod(data){
@@ -104,15 +107,16 @@ function displaypod(data){
         var podtitle = $("<a>")
             .text(data.items[i].title)
             .attr("href",data.items[i].link)
-            .attr("target","_blank"); 
+            .attr("target","_blank")
+            .attr("class", "info-preview"); 
         
         var poddiv = $("<div>");
         var snippet = $("<p>").text(data.items[i].snippet);
         
         poddiv.append(podtitle);
         poddiv.append(snippet); 
-       
-       
+    
+    
         $("#additionalInfo").append(poddiv);
     }
 
@@ -133,66 +137,12 @@ var googleApiCall = function(podcastTitle){
     })
     .then(function(data) {
         console.log(data);
+        $(".info-preview").remove()
         displaypod(data);
     })
     
 }
 
-// // testAPICall()
 
-// var allfeedsApiCall = function () {
-//     fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (chosenGenre))
-//         .then((response) => {
-//             if (response.ok) {
-//                 return response.json();
-//             } else {
-//                 throw new Error("NETWORK RESPONSE ERROR");
-//             }
-//         })
-//         .then(data => {
-//             console.log(data);
-//             podCast(data)
-//         })
-//         .catch((error) => console.error("FETCH ERROR:", error));
-// }
-
-// var ApiCall = function (genreid) {
-//     fetch("https://allfeeds.ai/api/find_podcasts?key=bfsz9kkmbuk6nxpcndc6&genre=" + (genreid))
-//         .then((response) => {
-//             if (response.ok) {
-//                 return response.json();
-//             } else {
-//                 throw new Error("NETWORK RESPONSE ERROR");
-//             }
-//         })
-//         .then(data => {
-//             console.log(data);
-//         })
-//         .catch((error) => console.error("FETCH ERROR:", error));
-// }
-
-
-// console.log(options[1].id);
-
-// var genresList = document.querySelector("#genres");
-// for (var i = 0; i < options.length; i++) {
-//     var optionEl = document.createElement("option");
-//     optionEl.setAttribute("value", options[i].id);
-//     optionEl.textContent = options[i].genre;
-//     genresList.appendChild(optionEl)
-// };
-
-// var formEl = document.querySelector("form")
-
-// formEl.addEventListener("submit", function (event) {
-//     event.preventDefault()
-//     var genreid = (genresList.value)
-//     ApiCall(genreid);
-// }
-// )
-
-// var displayData = function(genreid) {
-    
-// }
 
 
