@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Casting Director</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/grids-responsive-min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.1.0/build/pure-min.css"
+        integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="pure-g">
+        <h1 class="pure-u-1-3 header">Casting Director</h1>
+        <p class="pure-u-1-3 header">Select a category to display podcasts</p>
+        <form class="pure-u-1-3 pure-form pure-form-aligned">
+            <select id="genres" class="pure-input-1-2 select">
+                <option value="1301">Arts</option>
+                <option value="1302">Personal Journals</option>
+                <option value="1303">Comedy</option>
+                <option value="1304">Education</option>
+                <option value="1306">Food</option>
+                <option value="1310">Music</option>
+                <option value="1507">Games</option>
+                <option value="1514">Fitness</option>
+                <option value="1522">Pets & Animals</option>
+                <option value="1537">Nature</option>
+                <option value="1545">Sports</option>
+                <option value="1561">TV Reviews</option>
+                <option value="1505">Hobbies</option>
+                <option value="1485">Science Fiction</option>
+                <option value="1484">Drama</option>
+            </select>
+            <button id="submit" type="submit" class="pure-button pure-button-primary">Submit</button>
+        </form>
+        <h1 class="pure-u-1-4"></h1>
+    </header>
+    <main class="pure-g">
+        <div class="pure-u-3-4 column">
+            <h2 class="subtitle pure-u-md-3-4">Podcasts<span id="genre-search-term"></span></h2>
+            <div id="genre-container" class="list-group pure-u-md-3-4">
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+                <div class="podCastTile">
+                    <h2 class="title"></h2>
+                    <img class="picture">
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1-4">
+            <h2 class="subtitle pure-u-3-4">Additional Info<span id="placeholder"></span></h2>
+            <div id="additionalInfo" class="list-group pure-u-3-4"></div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
