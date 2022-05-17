@@ -5,7 +5,6 @@
     
 }
 img {
-    /* width:100%; */
     max-width:250px;
 }
 
@@ -17,6 +16,10 @@ header {
     position: sticky;
     background: #111819;
     font-size: 25px;
+}
+
+main {
+    display: none;
 }
 
 h1 {
@@ -83,6 +86,11 @@ h2 {
 a {
     font-size: 30px;
 }
+
+.column {
+    display: none;
+}
+
 .title:hover {
     color:#21D0E8;
     transition: all 0.3s ease;
