@@ -23,6 +23,8 @@ var allfeedsApiCall = function () {
         .then((response) => {
             console.log(response)                   
             if (response.ok) {
+                // Display weatherInfo data
+                $(".column").css("display", "block");
                 return response.json();
             } else {
                 throw new Error("NETWORK RESPONSE ERROR");
