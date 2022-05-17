@@ -19,6 +19,8 @@
 
 // var key = 'vn2ssqduhzg9wf8v2nj6';
 
+// var key = 'azk6ktkknuk6hnyhdp26';
+
 var key = "uxdsytjvf6nxr38xakcm"
 
 var genreSelector = document.getElementById("genres")
@@ -104,6 +106,7 @@ function displaypod(data){
 
 }
 
+// additional google API key: AIzaSyACBNiDBxazqUdFnOPucyrZI_TFXXvG_ks
 
 var googleApiCall = function(podcastTitle){
     fetch("https://www.googleapis.com/customsearch/v1?key=AIzaSyBKNYKmAGd_FpXKpQQasarBUBeomYRGsx4&cx=30fac650a9835a16a&q=" + podcastTitle)
