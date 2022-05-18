@@ -101,3 +101,17 @@ a {
     color:#21D0E8;
     transition: all 0.3s ease;
 }
+
+.list-title {
+    list-style: none;
+}
+
+.favs-title {
+    color: white
+}
+
+.favs-list {
+    list-style: none;
+    color: white
+}
+
