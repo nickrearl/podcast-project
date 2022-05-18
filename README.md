@@ -34,6 +34,7 @@ https://nickrearl.github.io/podcast-project/
 * [purecss](https://purecss.io/) framework
 * [allfeeds](https://allfeeds.ai/) API to get data for podcasts
 * [Google Custom Search](https://developers.google.com/custom-search/) API to get reviews for podcasts searched
+* [onerror Event](https://www.w3schools.com/jsref/event_onerror.asp)
 
 ## Contributors
 
