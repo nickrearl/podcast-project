@@ -107,6 +107,12 @@ a {
     list-style: none;
 }
 
+.favs-title {
+    color: white
+}
+
 .favs-list {
     list-style: none;
+    color: white
 }
+
