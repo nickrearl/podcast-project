@@ -23,17 +23,18 @@ OR
 
 ## Live Preview
 
-View a [live preview](DEPLOYED PAGE LINK GOES HERE) of our project.
+https://nickrearl.github.io/podcast-project/
 
 ## Screenshot
 
-![PREVIEW](PROJECT PREVIEW LINK GOES HERE)
+![alt text](./assets/images/preview.png)
 
 ## Attributions
 
 * [purecss](https://purecss.io/) framework
 * [allfeeds](https://allfeeds.ai/) API to get data for podcasts
 * [Google Custom Search](https://developers.google.com/custom-search/) API to get reviews for podcasts searched
+* [onerror Event](https://www.w3schools.com/jsref/event_onerror.asp)
 
 ## Contributors
 

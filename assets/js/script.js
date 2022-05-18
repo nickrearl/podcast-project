@@ -1,18 +1,3 @@
-// add event listener for when a selction is made from the genre drop down------
-
-// return the slected genere to be added as a variable to the allfeeds api call url---------
-
-// call allfeeds api for list of podcasts by top in the genre selected-----------
-
-// display top ten results in a list with clickable buttons on the left side of the screen -------
-
-// add an event listener so when a button is clicked that podcast is selected -------
-
-// create variable so when a genre is selected it can be sent to the url for the google custom search api call ------
-
-// run the google api call with the selected podcast to get more information about the podcast ------
-
-// display the google api results on the right side of the screen-------
 
 //extra api key
 var key = "bfsz9kkmbuk6nxpcndc6";
@@ -27,15 +12,21 @@ var genreSelector = document.getElementById("genres")
 
 var submitButton = document.getElementById("submit")
 
+var img = document.querySelector("img")
+
 var chosenGenre = ""
 
 var pageNumber = ""
+
+var likedPodcasts = []
 
 var allfeedsApiCall = function () {
     fetch("https://allfeeds.ai/api/find_podcasts?key="+key+"&genre=" + (chosenGenre) + "&page=" + pageNumber + "&language=en")
         .then((response) => {
             console.log(response)                   
             if (response.ok) {
+                // Display weatherInfo data
+                $(".column").css("display", "block");
                 return response.json();
             } else {
                 throw new Error("NETWORK RESPONSE ERROR");
@@ -71,10 +62,9 @@ var getGenreChoice = function(event){
 
 }
 
-
 function displayResults(data) {
     var count = 0;
-    $(".podCastTile").each(function () {
+    $(".tile").each(function () {
     $(this).children(".title").text(data.results[count].title);
     $(this).children(".picture").attr("src", data.results[count].image_url);
     count++;
@@ -126,10 +116,18 @@ var googleApiCall = function(podcastTitle){
     
 }
 
+var saveFavorites = function(){
+    var savedPodcasts = JSON.stringify(likedPodcasts)
+
+    localStorage.setItem("savedCasts", savedPodcasts)
+}
+
 submitButton.addEventListener("click", getGenreChoice);
 
-$("#genre-container").on("click", ".title", function(){
+$("#genre-container").on("click", ".tile", function(){
     var chosenPodcastTitle = $(this).text()
+    likedPodcasts.push(chosenPodcastTitle)
+    saveFavorites()
     $("#additionalInfo").html("");
     googleApiCall(chosenPodcastTitle)
     
