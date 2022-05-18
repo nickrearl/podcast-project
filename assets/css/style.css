@@ -104,6 +104,16 @@ div {
     content: '❤️‍🔥';
 }
 
+.favorites-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    background:  var(--dark);
+    font-size: 25px;
+}
+
 .column {
     display: none;
     width: 46%;

@@ -1,12 +1,12 @@
 
 //extra api key
-var key = "bfsz9kkmbuk6nxpcndc6";
+//var key = "bfsz9kkmbuk6nxpcndc6";
 
 //var key = 'vn2ssqduhzg9wf8v2nj6';
 
 //var key = 'azk6ktkknuk6hnyhdp26';
 
-//var key = "uxdsytjvf6nxr38xakcm"
+var key = "uxdsytjvf6nxr38xakcm"
 
 var genreSelector = document.getElementById("genres")
 
