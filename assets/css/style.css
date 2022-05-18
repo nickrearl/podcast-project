@@ -69,6 +69,7 @@ h2 {
 .subtitle {
     font-size: 50px;
     text-align: center;
+    padding: 0 0 0 100px;
 }
 
 #genre-container {
@@ -86,4 +87,13 @@ a {
 .title:hover {
     color:#21D0E8;
     transition: all 0.3s ease;
+}
+
+.list-group {
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0 0 0 100px;
 }
