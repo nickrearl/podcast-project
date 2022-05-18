@@ -139,14 +139,3 @@ div {
     transform: scale(1);
     box-shadow: 0 14px 28px rgba(63, 63, 63, 0.25), 0 10px 10px rgba(89, 88, 88, 0.22);
 }
-
-/* .card-info {
-    position: absolute;
-    border-radius: 3px;
-    bottom: 25px;
-    left: 10px;
-    background-color: var(--secondary-color);
-    color: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
-} */
