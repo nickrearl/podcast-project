@@ -83,6 +83,24 @@ div {
     margin: 1rem;
     width: min-content;
     text-decoration: none;
+    transform: scale(.5);
+    text-shadow: 0 2px 4px rgba(0,0,0,.3);
+    transition: 
+    text-shadow .2s ease-in-out,
+    transform .2s ease-in-out;
+}
+
+.favorite:hover {
+    transform: scale(1) translatey(-20px);
+    text-shadow: 0 20px 20px rgba(0,0,0,.3);
+}
+
+.favorite:before {
+    content: '❤️';
+}
+
+.favorite:hover:before {
+    content: '❤️‍🔥';
 }
 
 .column {
