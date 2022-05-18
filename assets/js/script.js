@@ -12,6 +12,8 @@ var genreSelector = document.getElementById("genres")
 
 var submitButton = document.getElementById("submit")
 
+var img = document.querySelector("img")
+
 var chosenGenre = ""
 
 var pageNumber = ""
@@ -59,7 +61,6 @@ var getGenreChoice = function(event){
     
 
 }
-
 
 function displayResults(data) {
     var count = 0;
