@@ -1,5 +1,7 @@
 var favoritesList = $(".favs-list")
 
+var clearFavoritesButtons = $("#clear-favs")
+
 var displayFavorites = function(){
     var favCasts = localStorage.getItem("savedCasts")
 
@@ -14,4 +16,12 @@ var displayFavorites = function(){
     }
 }
 
+var clearFavorites = function(){
+    $(".cast-title").remove()
+
+    localStorage.clear()
+}
+
 displayFavorites()
+
+clearFavoritesButtons.on("click", clearFavorites)
