@@ -64,7 +64,7 @@ var getGenreChoice = function(event){
 
 function displayResults(data) {
     var count = 0;
-    $(".podCastTile").each(function () {
+    $(".tile").each(function () {
     $(this).children(".title").text(data.results[count].title);
     $(this).children(".picture").attr("src", data.results[count].image_url);
     count++;
@@ -124,7 +124,7 @@ var saveFavorites = function(){
 
 submitButton.addEventListener("click", getGenreChoice);
 
-$("#genre-container").on("click", ".title", function(){
+$("#genre-container").on("click", ".tile", function(){
     var chosenPodcastTitle = $(this).text()
     likedPodcasts.push(chosenPodcastTitle)
     saveFavorites()
